@@ -5,11 +5,13 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_a202f"]
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("view_camera", "gridmap", "selector")]
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("view_camera", "gridmap", "selector", "heart", "root")]
 script = ExtResource("1_a202f")
 view_camera = NodePath("Camera3D")
 gridmap = NodePath("GridMap")
 selector = NodePath("Node3D")
+heart = NodePath("Node3D2/Sprite3D")
+root = NodePath(".")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.81183904, 0.5838813, 0, -0.5838813, 0.81183904, 0, 8.206148, 12.002527)
@@ -26,4 +28,10 @@ mesh = SubResource("BoxMesh_a202f")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+texture = ExtResource("2_noarx")
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D2"]
 texture = ExtResource("2_noarx")
