@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://mgp02mkor0at"]
+[gd_scene load_steps=6 format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Script" uid="uid://c3lkidldb5hoc" path="res://basicgen.gd" id="1_a202f"]
 [ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="2_noarx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_a202f"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("view_camera", "gridmap", "selector", "heart", "root")]
 script = ExtResource("1_a202f")
 view_camera = NodePath("Camera3D")
 gridmap = NodePath("GridMap")
-selector = NodePath("Node3D")
-heart = NodePath("Node3D2/Sprite3D")
+selector = NodePath("selector")
+heart = NodePath("heart")
 root = NodePath(".")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -24,14 +28,28 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_a202f")
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+[node name="selector" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8.18189, -2.3841858e-07, 2.7495484)
+top_level = true
 
-[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+[node name="Sprite3D" type="Sprite3D" parent="selector"]
 texture = ExtResource("2_noarx")
 
-[node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+[node name="RayCast3D" type="RayCast3D" parent="selector"]
+target_position = Vector3(0, 0, 1)
 
-[node name="Sprite3D" type="Sprite3D" parent="Node3D2"]
+[node name="heart" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="heart"]
 texture = ExtResource("2_noarx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8738449, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_noarx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_a0tk4")
