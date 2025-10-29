@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://mgp02mkor0at"]
+[gd_scene load_steps=7 format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Script" uid="uid://c3lkidldb5hoc" path="res://basicgen.gd" id="1_a202f"]
 [ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="2_noarx"]
@@ -8,6 +8,8 @@
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+
+[sub_resource type="Environment" id="Environment_noarx"]
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("view_camera", "gridmap", "selector", "heart", "root")]
 script = ExtResource("1_a202f")
@@ -53,3 +55,9 @@ mesh = SubResource("BoxMesh_noarx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_noarx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.86741835, 0.4975796, 0, -0.4975796, 0.86741835, 0, 0, 0)

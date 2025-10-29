@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://jf1m8fmworwk"]
+
+[ext_resource type="Script" uid="uid://c6n8radujm4gr" path="res://village_t_1.gd" id="1_2kilu"]
+
+[node name="VillageT1" type="Node3D"]
+script = ExtResource("1_2kilu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2882843)
