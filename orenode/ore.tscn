@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://vo1vd610qrxs"]
+
+[ext_resource type="Script" uid="uid://boxb578ipypyy" path="res://orenode/ore.gd" id="1_21rsy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf7uh"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_21rsy"]
+
+[node name="Ore" type="Node3D"]
+script = ExtResource("1_21rsy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_yf7uh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6046393, 0)
+mesh = SubResource("CylinderMesh_21rsy")
+skeleton = NodePath("../MeshInstance3D")

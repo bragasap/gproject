@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://mgp02mkor0at"]
+[gd_scene load_steps=9 format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Script" uid="uid://c3lkidldb5hoc" path="res://basicgen.gd" id="1_a202f"]
 [ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="2_noarx"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_a202f"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://vo1vd610qrxs" path="res://orenode/ore.tscn" id="3_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://cvg7br2awhs8p" path="res://wagon/wagon.tscn" id="4_r3fl7"]
 
 [sub_resource type="Environment" id="Environment_noarx"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_r3fl7"]
+vertices = PackedVector3Array(-14.4226465, 3, -9.564098, -14.4226465, 3, 9.685902, 14.3273535, 3, 9.685902, 14.3273535, 3, -9.564098)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jka67"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
+size = Vector3(5, 5, 5)
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("view_camera", "gridmap", "selector", "heart", "root")]
 script = ExtResource("1_a202f")
@@ -25,11 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 0.81183904, 0.5838813, 0, -0.5838813, 0.8118
 [node name="GridMap" type="GridMap" parent="."]
 cell_size = Vector3(1, 1, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_a202f")
-
 [node name="selector" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8.18189, -2.3841858e-07, 2.7495484)
 top_level = true
@@ -38,7 +38,7 @@ top_level = true
 texture = ExtResource("2_noarx")
 
 [node name="RayCast3D" type="RayCast3D" parent="selector"]
-target_position = Vector3(0, 0, 1)
+target_position = Vector3(0, 0, 2)
 
 [node name="heart" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
@@ -47,17 +47,31 @@ visible = false
 [node name="Sprite3D" type="Sprite3D" parent="heart"]
 texture = ExtResource("2_noarx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8738449, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_noarx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_a0tk4")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_noarx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.86741835, 0.4975796, 0, -0.4975796, 0.86741835, 0, 0, 0)
+
+[node name="Ore" parent="." instance=ExtResource("3_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("4_r3fl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.091639, -0.112648845, -0.21822673)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.6063488, 0)
+navigation_mesh = SubResource("NavigationMesh_r3fl7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(29.845293, 0, 0, 0, 5, 0, 0, 0, 20.128197, 0, 0, 0)
+mesh = SubResource("BoxMesh_jka67")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(5.863991, 0, 0, 0, 1, 0, 0, 0, 4.0109997, 0, 0, 0)
+shape = SubResource("BoxShape3D_i5arm")
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("4_r3fl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.427345, 0.17392361, 8.0781765)
