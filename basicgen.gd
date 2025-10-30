@@ -6,7 +6,9 @@ extends Node3D
 @export var heart:Node3D
 @export var root:Node3D
 @onready var villageTile = load("res://villageT1.tscn")
+@onready var ray = selector.get_node("RayCast3D")
 @onready var previous_state = true
+@onready var cityLogic = $cityLogic
 var gridmap_position
 var world_position
 func _ready() -> void:
@@ -22,8 +24,13 @@ func _process(_delta):
 	if world_position != null:
 		gridmap_position = Vector3(round(world_position.x), 0, round(world_position.z))
 		selector.position = lerp(selector.position, gridmap_position, 1)
-		if(selector.get_node("RayCast3D").is_colliding()):
+		if(ray.is_colliding()):
+			var tile = ray.get_collider().get_parent()
+			#print("Hit object:", tile.name)
 			selector.get_node("Sprite3D").modulate = Color(1, 1, 1)
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state and tile.name  == "Ore":
+				tile.claimMine()
+				cityLogic.addTile(tile)
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state and world_position!=null:
 			var instance = villageTile.instantiate()
 			instance.position = selector.position

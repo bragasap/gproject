@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c3lkidldb5hoc" path="res://basicgen.gd" id="1_a202f"]
 [ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="2_noarx"]
 [ext_resource type="PackedScene" uid="uid://vo1vd610qrxs" path="res://orenode/ore.tscn" id="3_a0tk4"]
-[ext_resource type="PackedScene" uid="uid://cvg7br2awhs8p" path="res://wagon/wagon.tscn" id="4_r3fl7"]
+[ext_resource type="Script" uid="uid://coh6uqa0u1lia" path="res://city_logic.gd" id="4_r3fl7"]
 
 [sub_resource type="Environment" id="Environment_noarx"]
 
@@ -39,10 +39,10 @@ texture = ExtResource("2_noarx")
 
 [node name="RayCast3D" type="RayCast3D" parent="selector"]
 target_position = Vector3(0, 0, 2)
+hit_from_inside = true
 
 [node name="heart" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -11.271504, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="heart"]
 texture = ExtResource("2_noarx")
@@ -54,13 +54,10 @@ environment = SubResource("Environment_noarx")
 transform = Transform3D(1, 0, 0, 0, 0.86741835, 0.4975796, 0, -0.4975796, 0.86741835, 0, 0, 0)
 
 [node name="Ore" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("4_r3fl7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.091639, -0.112648845, -0.21822673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.235367, 0, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.6063488, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.68174, -3.6063488, 0)
 navigation_mesh = SubResource("NavigationMesh_r3fl7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
@@ -73,5 +70,5 @@ mesh = SubResource("BoxMesh_jka67")
 transform = Transform3D(5.863991, 0, 0, 0, 1, 0, 0, 0, 4.0109997, 0, 0, 0)
 shape = SubResource("BoxShape3D_i5arm")
 
-[node name="CharacterBody3D2" parent="." instance=ExtResource("4_r3fl7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.427345, 0.17392361, 8.0781765)
+[node name="cityLogic" type="Node3D" parent="."]
+script = ExtResource("4_r3fl7")

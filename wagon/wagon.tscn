@@ -8,7 +8,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i2qh3"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="wagon" type="CharacterBody3D"]
 script = ExtResource("1_7qof3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
