@@ -2,41 +2,65 @@ extends CharacterBody3D
 
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @export var speed = 3 
+@export var loadingSpeed = 5.0
+@export var loadingAmt = 5.0
 @export var storage = 0
 @export var maxStorage = 15
 @export var items:String
-@export var target: Vector3
+@export var target: Node3D
+@export var tile:Node3D
 @onready var movement = true
-@export var home:Vector3
+@export var home:Node3D
+@onready var loading = false
 #storage
-func load():
+func loadWagon():
 	while storage < maxStorage:
-		await get_tree().create_timer(5.0).timeout
-		storage += 5
+		await get_tree().create_timer(loadingSpeed).timeout
+		#fix ore math
+		storage += loadingAmt
 		storage = min(storage, maxStorage)
 		print("Storage:", storage)
+		if(storage == maxStorage):
+			updateTarget(home)
+			movement = true
+			loading = false
+			return
+func unloadWagon():
+	while storage >=0 :
+		await get_tree().create_timer(loadingSpeed).timeout
+		storage -= loadingAmt
+		storage = max(storage, 0)
+		print("Storage:", storage)
+		if(storage ==0):
+			updateTarget(tile)
+			movement = true
+			loading = false
+			return
 #movement related function
-func _ready():
-	agent.set_target_position(target)
-	print(target)
-func updateHome(spawnPoint:Vector3):
+func updateHome(spawnPoint:Node3D):
 	home = spawnPoint
-func updateTarget(pos:Vector3):
+func updateTile(t:Node3D):
+	tile = t
+func updateTarget(pos:Node3D):
 	target = pos
-	agent.set_target_position(pos)
-
+	agent.set_target_position(target.position)
 func _physics_process(_delta):
 	if movement:
 		if agent.is_navigation_finished():
 			movement = false
 		var curLoc = global_transform.origin
 		var nextLoc = agent.get_next_path_position()
-		#look_at(nextLoc)
-		#print(agent.get_target_position(),curLoc,nextLoc)
-		#if(curLoc!=nextLoc):
 		var newVel = (nextLoc-curLoc).normalized() * speed
 		velocity = newVel
 		move_and_slide()
-		print(curLoc)
-		if position.distance_to(target) <= 2:
+		if position.distance_to(target.position) <= 2:
 			movement = false
+	else:
+		if(target.name != home.name):
+			if (!loading):
+				loadWagon()
+				loading = true
+		if(target.name == home.name):
+			if (!loading):
+				unloadWagon()
+				loading = true

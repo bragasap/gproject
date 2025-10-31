@@ -10,6 +10,7 @@
 
 [node name="wagon" type="CharacterBody3D"]
 script = ExtResource("1_7qof3")
+loadingSpeed = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_7qof3")

@@ -11,6 +11,8 @@ size = Vector3(1, 3, 1)
 
 [node name="Ore" type="Node3D"]
 script = ExtResource("1_21rsy")
+maxOre = 50
+oreValue = 10
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_yf7uh")

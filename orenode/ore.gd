@@ -17,8 +17,18 @@ func claimMine():
 	mine()
 func isClaimed():
 	return claimed;
+#this is completely broken logically fix it
+#func loadOntoWagon(lAmt:int):
+	#oreValue = oreValue - lAmt
+	#if(oreValue<0):
+		#return lAmt - lAmt
+		#oreValue = 0
+		#print("vein Empty")
+	#return min(oreValue,lAmt)
 func mine ():
 	while true:
 		await get_tree().create_timer(time).timeout
 		oreValue += mineRate
 		oreValue = min(oreValue, maxOre)
+		if(oreValue==maxOre):
+			print("vein Full")
