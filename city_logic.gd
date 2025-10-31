@@ -14,3 +14,4 @@ func createWagon(tile:Node3D):
 	add_child(wagon_instance)
 	print(tile.position)
 	wagon_instance.updateTarget(tile.position)
+	wagon_instance.updateHome(heart.position)

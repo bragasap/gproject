@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var items:String
 @export var target: Vector3
 @onready var movement = true
+@export var home:Vector3
 #storage
 func load():
 	while storage < maxStorage:
@@ -18,6 +19,8 @@ func load():
 func _ready():
 	agent.set_target_position(target)
 	print(target)
+func updateHome(spawnPoint:Vector3):
+	home = spawnPoint
 func updateTarget(pos:Vector3):
 	target = pos
 	agent.set_target_position(pos)

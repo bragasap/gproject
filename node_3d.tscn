@@ -8,7 +8,7 @@
 [sub_resource type="Environment" id="Environment_noarx"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_r3fl7"]
-vertices = PackedVector3Array(-14.4226465, 3, -9.564098, -14.4226465, 3, 9.685902, 14.3273535, 3, 9.685902, 14.3273535, 3, -9.564098)
+vertices = PackedVector3Array(-14.422645, 3, -9.564097, -14.422645, 3, 9.685903, 14.327355, 3, 9.685903, 14.327355, 3, -9.564097)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jka67"]
