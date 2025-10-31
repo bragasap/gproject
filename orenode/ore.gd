@@ -15,6 +15,8 @@ func claimMine():
 	claimed = true;
 	print("Tile claimed started mining")
 	mine()
+func isClaimed():
+	return claimed;
 func mine ():
 	while true:
 		await get_tree().create_timer(time).timeout

@@ -57,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 0.86741835, 0.4975796, 0, -0.4975796, 0.8674
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.235367, 0, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.68174, -3.6063488, 0)
+transform = Transform3D(2.2234015, 0, 0, 0, 1, 0, 0, 0, 2.1108918, 11.285923, -3.6063488, 0.005924225)
 navigation_mesh = SubResource("NavigationMesh_r3fl7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
