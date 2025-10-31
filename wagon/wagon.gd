@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @export var speed = 3 
 @export var loadingSpeed = 5.0
-@export var loadingAmt = 5.0
+@export var loadingAmt = 5
 @export var storage = 0
 @export var maxStorage = 15
 @export var items:String
@@ -17,7 +17,7 @@ func loadWagon():
 	while storage < maxStorage:
 		await get_tree().create_timer(loadingSpeed).timeout
 		#fix ore math
-		storage += loadingAmt
+		storage += tile.loadOntoWagon(loadingAmt)
 		storage = min(storage, maxStorage)
 		print("Storage:", storage)
 		if(storage == maxStorage):

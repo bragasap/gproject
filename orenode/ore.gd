@@ -2,8 +2,8 @@ extends Node3D
 @export var maxOre= 30;
 @export var oreValue:int;
 @export var oreType:String;
-@export var mineRate = 5;
-@export var time = 5.0;
+@export var mineRate = 25;
+@export var time = 15;
 @export var claimed = false;
 func modOreValue(mod:int):
 	oreValue = oreValue * mod
@@ -18,13 +18,16 @@ func claimMine():
 func isClaimed():
 	return claimed;
 #this is completely broken logically fix it
-#func loadOntoWagon(lAmt:int):
-	#oreValue = oreValue - lAmt
-	#if(oreValue<0):
-		#return lAmt - lAmt
-		#oreValue = 0
-		#print("vein Empty")
-	#return min(oreValue,lAmt)
+func loadOntoWagon(lAmt:int):
+	if (oreValue<lAmt):
+		var temp = oreValue
+		oreValue = 0
+		return temp
+	oreValue = oreValue - lAmt
+	if(oreValue<0):
+		oreValue = 0
+		print("vein Empty")
+	return lAmt
 func mine ():
 	while true:
 		await get_tree().create_timer(time).timeout
