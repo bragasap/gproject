@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://mgp02mkor0at"]
+[gd_scene load_steps=10 format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Script" uid="uid://c3lkidldb5hoc" path="res://basicgen.gd" id="1_a202f"]
+[ext_resource type="Script" uid="uid://cb4eam8v584o8" path="res://camera_3d.gd" id="2_jka67"]
 [ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="2_noarx"]
 [ext_resource type="PackedScene" uid="uid://vo1vd610qrxs" path="res://orenode/ore.tscn" id="3_a0tk4"]
 [ext_resource type="Script" uid="uid://coh6uqa0u1lia" path="res://city_logic.gd" id="4_r3fl7"]
@@ -26,6 +27,7 @@ root = NodePath(".")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.81183904, 0.5838813, 0, -0.5838813, 0.81183904, 0, 8.206148, 12.002527)
+script = ExtResource("2_jka67")
 
 [node name="GridMap" type="GridMap" parent="."]
 cell_size = Vector3(1, 1, 1)
@@ -54,7 +56,7 @@ environment = SubResource("Environment_noarx")
 transform = Transform3D(1, 0, 0, 0, 0.86741835, 0.4975796, 0, -0.4975796, 0.86741835, 0, 0, 0)
 
 [node name="Ore" parent="." instance=ExtResource("3_a0tk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.235367, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.707275, -0.42544436, -1.2759256)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(2.2234015, 0, 0, 0, 1, 0, 0, 0, 2.1108918, 11.285923, -3.6063488, 0.005924225)
@@ -72,3 +74,6 @@ shape = SubResource("BoxShape3D_i5arm")
 
 [node name="cityLogic" type="Node3D" parent="."]
 script = ExtResource("4_r3fl7")
+
+[node name="Ore2" parent="." instance=ExtResource("3_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.863405, -0.2384243, -2.5236444)

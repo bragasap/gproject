@@ -28,7 +28,7 @@ func _process(_delta):
 			var tile = ray.get_collider().get_parent()
 			#print("Hit object:", tile.name)
 			selector.get_node("Sprite3D").modulate = Color(1, 1, 1)
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state and tile.name  == "Ore":
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state and "Ore" in tile.name:
 				if(!tile.isClaimed()):
 					tile.claimMine()
 					cityLogic.addTile(tile)

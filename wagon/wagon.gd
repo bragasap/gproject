@@ -51,7 +51,11 @@ func _physics_process(_delta):
 		var curLoc = global_transform.origin
 		var nextLoc = agent.get_next_path_position()
 		var newVel = (nextLoc-curLoc).normalized() * speed
-		velocity = newVel
+		#velocity = newVel
+		if agent.avoidance_enabled:
+			agent.set_velocity(newVel)
+		else:
+			_on_navigation_agent_3d_velocity_computed(newVel)
 		move_and_slide()
 		if position.distance_to(target.position) <= 2:
 			movement = false
@@ -64,3 +68,8 @@ func _physics_process(_delta):
 			if (!loading):
 				unloadWagon()
 				loading = true
+
+
+func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
+	velocity = safe_velocity
+	pass # Replace with function body.
