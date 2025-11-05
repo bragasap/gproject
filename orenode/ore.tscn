@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://vo1vd610qrxs"]
+[gd_scene load_steps=4 format=3 uid="uid://vo1vd610qrxs"]
 
 [ext_resource type="Script" uid="uid://boxb578ipypyy" path="res://orenode/ore.gd" id="1_21rsy"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_yf7uh"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_21rsy"]
+[ext_resource type="PackedScene" uid="uid://crutdapgrru0d" path="res://3dAssets/rock-a.glb" id="2_yf7uh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_21rsy"]
 size = Vector3(1, 3, 1)
@@ -14,16 +11,11 @@ script = ExtResource("1_21rsy")
 maxOre = 50
 oreValue = 17
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_yf7uh")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6046393, 0)
-mesh = SubResource("CylinderMesh_21rsy")
-skeleton = NodePath("../MeshInstance3D")
-
 [node name="Ore" type="StaticBody3D" parent="."]
 
 [node name="ore" type="CollisionShape3D" parent="Ore"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10277009, 0)
 shape = SubResource("BoxShape3D_21rsy")
+
+[node name="rock-a2" parent="." instance=ExtResource("2_yf7uh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
