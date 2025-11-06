@@ -11,7 +11,7 @@ func modMaxMinerValue(mod:int):
 	oreValue = oreValue * mod
 func getOreValue():
 	return oreValue 
-func claimMine():
+func claim():
 	claimed = true;
 	print("Tile claimed started mining")
 	mine()

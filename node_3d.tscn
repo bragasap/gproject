@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://mgp02mkor0at"]
 
-[ext_resource type="Script" uid="uid://c3lkidldb5hoc" path="res://basicgen.gd" id="1_a202f"]
+[ext_resource type="Script" uid="uid://c3lkidldb5hoc" path="res://player.gd" id="1_a202f"]
 [ext_resource type="Script" uid="uid://cb4eam8v584o8" path="res://camera_3d.gd" id="2_jka67"]
 [ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="2_noarx"]
 [ext_resource type="PackedScene" uid="uid://vo1vd610qrxs" path="res://orenode/ore.tscn" id="3_a0tk4"]
-[ext_resource type="Script" uid="uid://coh6uqa0u1lia" path="res://city_logic.gd" id="4_r3fl7"]
+[ext_resource type="Script" uid="uid://coh6uqa0u1lia" path="res://cityLogic.gd" id="4_r3fl7"]
 
 [sub_resource type="Environment" id="Environment_noarx"]
 

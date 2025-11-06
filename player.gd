@@ -6,7 +6,7 @@ extends Node3D
 @export var heart:Node3D
 @export var root:Node3D
 @onready var villageTile = load("res://village/villageT1.tscn")
-@onready var ray = selector.get_node("RayCast3D")
+@onready var ray = selector.get_node("RayCast3D") 
 @onready var previous_state = true
 @onready var cityLogic = $cityLogic
 var gridmap_position
@@ -30,8 +30,9 @@ func _process(_delta):
 			selector.get_node("Sprite3D").modulate = Color(1, 1, 1)
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state and "Ore" in tile.name:
 				if(!tile.isClaimed()):
-					tile.claimMine()
-					cityLogic.addTile(tile)
+					cityLogic.attemptClaim(tile)
+					#tile.claim()
+					#cityLogic.addTile(tile)
 		#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state and world_position!=null:
 			#var instance = villageTile.instantiate()
 			#instance.position = selector.position

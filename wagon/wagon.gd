@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var movement = true
 @export var home:Node3D
 @onready var loading = false
+#TODO: health and armor values, can die
 #storage
 func loadWagon():
 	while storage < maxStorage:
@@ -25,6 +26,7 @@ func loadWagon():
 			movement = true
 			loading = false
 			return
+#TODO: Actually unloading into player resource pool
 func unloadWagon():
 	while storage >=0 :
 		await get_tree().create_timer(loadingSpeed).timeout
