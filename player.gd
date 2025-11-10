@@ -1,4 +1,7 @@
 extends Node3D
+#gotta seperate this from the player to city logic
+#this should just be controls and UI
+#building should be done in cityLogic
 @export var view_camera:Camera3D # Used for raycasting mouse
 @export var gridmap:GridMap
 @export var plane:Plane
@@ -26,17 +29,21 @@ func _process(_delta):
 		selector.position = lerp(selector.position, gridmap_position, 1)
 		if(ray.is_colliding()):
 			var tile = ray.get_collider().get_parent()
-			#print("Hit object:", tile.name)
+			#raw mesh position
+			#ray.get_collision_point()
 			selector.get_node("Sprite3D").modulate = Color(1, 1, 1)
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state and "Ore" in tile.name:
-				if(!tile.isClaimed()):
-					cityLogic.attemptClaim(tile)
-					#tile.claim()
-					#cityLogic.addTile(tile)
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state:
+				print(tile.name)
+				# if(!tile.isClaimed()):
+				# 	cityLogic.attemptClaim(tile)
+				# 	tile.claim()
+				# 	cityLogic.addTile(tile)
 		#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not previous_state and world_position!=null:
 			#var instance = villageTile.instantiate()
 			#instance.position = selector.position
 			#instance.scale = Vector3(0.25, 0.25, 0.25)
 			#add_child(instance)
 			#print((selector.position).abs())
+		else:
+			selector.get_node("Sprite3D").modulate = Color(1.0, 0.0, 0.0, 1.0)
 		previous_state = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)

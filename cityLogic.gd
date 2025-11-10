@@ -3,8 +3,11 @@ extends Node3D
 @export var ownedTiles:Array[Node3D]
 @onready var wagon = load("res://wagon/wagon.tscn")
 @onready var claimWagon = load("res://claimWagon/wagon.tscn")
-func ready():
-	addTile(heart)
+@onready var villager = load("res://units/F1/villager.tscn")
+@onready var village = load("res://village/villageT1.tscn")
+@onready var units = []
+func _ready():
+	ownedTiles.append(heart)
 #fix this to have wagon get there first then claim tile
 func addTile(tile:Node3D):
 	ownedTiles.append(tile)
