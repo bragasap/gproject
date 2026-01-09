@@ -1,5 +1,5 @@
 extends Camera3D
-
+#this was all vibe coded 
 @export var speed: float = 12.0            # max movement speed (units/sec)
 @export var accel: float = 8.0             # acceleration for smoothing
 @export var decel: float = 10.0            # deceleration when no input

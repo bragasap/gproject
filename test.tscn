@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6vf1aji6dy38"]
+
+[ext_resource type="PackedScene" uid="uid://mgp02mkor0at" path="res://unit.tscn" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://ckp4b53u6oy0k" path="res://control.gd" id="1_ykrsh"]
+[ext_resource type="Script" uid="uid://br1seygui4q2b" path="res://basescripts/player.gd" id="3_6uqi0"]
+[ext_resource type="Script" uid="uid://cb4eam8v584o8" path="res://camera_3d.gd" id="4_ppyta"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_37kl0"]
+vertices = PackedVector3Array(-4.5, 0.26236486, -4.5, -4.5, 0.26236486, 4.5, 4.5, 0.26236486, 4.5, 4.5, 0.26236486, -4.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6uqi0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
+albedo_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+
+[node name="Test" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ykrsh")
+
+[node name="unit5" parent="." instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9560437, 0.058766067, -2.9873471)
+
+[node name="unit4" parent="." instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.239, -0.023011237, 0.163)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_37kl0")
+
+[node name="ground" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.73763514, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/ground"]
+shape = SubResource("BoxShape3D_8uh7m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/ground/CollisionShape3D"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("BoxMesh_6uqi0")
+surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
+
+[node name="player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8771783, 1.9747307, 2.805)
+script = ExtResource("3_6uqi0")
+
+[node name="Camera3D" type="Camera3D" parent="player"]
+transform = Transform3D(0.78074676, 0.37162098, -0.5023269, 0, 0.80391914, 0.5947386, 0.6248476, -0.46434024, 0.6276573, -0.00044083595, -0.0002706051, 7.367134e-05)
+script = ExtResource("4_ppyta")
