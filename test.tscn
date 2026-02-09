@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6vf1aji6dy38"]
+[gd_scene format=3 uid="uid://b6vf1aji6dy38"]
 
 [ext_resource type="PackedScene" uid="uid://mgp02mkor0at" path="res://unit.tscn" id="1_37kl0"]
-[ext_resource type="Script" uid="uid://ckp4b53u6oy0k" path="res://control.gd" id="1_ykrsh"]
-[ext_resource type="Script" uid="uid://br1seygui4q2b" path="res://basescripts/player.gd" id="3_6uqi0"]
-[ext_resource type="Script" uid="uid://cb4eam8v584o8" path="res://camera_3d.gd" id="4_ppyta"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="2_8uh7m"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_37kl0"]
 vertices = PackedVector3Array(-4.5, 0.26236486, -4.5, -4.5, 0.26236486, 4.5, 4.5, 0.26236486, 4.5, 4.5, 0.26236486, -4.5)
@@ -17,37 +15,54 @@ size = Vector3(10, 1, 10)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
 albedo_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
 
-[node name="Test" type="Node3D"]
+[node name="Test" type="Node3D" unique_id=1897950056]
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_ykrsh")
+[node name="unit7" parent="." unique_id=562985554 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7189229, 0.03575495, -1.1778064)
 
-[node name="unit5" parent="." instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9560437, 0.058766067, -2.9873471)
+[node name="unit8" parent="." unique_id=1721048492 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91506386, -0.046022236, -0.09639406)
 
-[node name="unit4" parent="." instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.239, -0.023011237, 0.163)
+[node name="unit9" parent="." unique_id=449320740 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4312446, 0.035755068, -1.5059831)
+maxHealth = 30.0
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="unit5" parent="." unique_id=46743672 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6909564, 0.058766067, -1.5971729)
+
+[node name="unit4" parent="." unique_id=1208632795 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8870975, -0.023011118, -0.51576054)
+
+[node name="unit6" parent="." unique_id=400875902 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4032784, 0.058766186, -1.9253497)
+maxHealth = 30.0
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1883380005]
 navigation_mesh = SubResource("NavigationMesh_37kl0")
 
-[node name="ground" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="ground" type="StaticBody3D" parent="NavigationRegion3D" unique_id=21700728]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.73763514, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/ground" unique_id=720744263]
 shape = SubResource("BoxShape3D_8uh7m")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/ground/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/ground/CollisionShape3D" unique_id=1570771373]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("BoxMesh_6uqi0")
 surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
 
-[node name="player" type="Node3D" parent="."]
+[node name="player" parent="." unique_id=1666066983 instance=ExtResource("2_8uh7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8771783, 1.9747307, 2.805)
-script = ExtResource("3_6uqi0")
 
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(0.78074676, 0.37162098, -0.5023269, 0, 0.80391914, 0.5947386, 0.6248476, -0.46434024, 0.6276573, -0.00044083595, -0.0002706051, 7.367134e-05)
-script = ExtResource("4_ppyta")
+[node name="unit10" parent="." unique_id=1794867208 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6364648, 0.03575495, -0.813462)
+faction = 2
+
+[node name="unit11" parent="." unique_id=1650141737 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4403238, -0.046022236, 0.2679503)
+faction = 2
+
+[node name="unit12" parent="." unique_id=1958120701 instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.924143, 0.035755068, -1.1416388)
+maxHealth = 30.0
+faction = 2

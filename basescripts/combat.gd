@@ -19,12 +19,14 @@ func updateTarget():
 #something may still be broken here
 func attack(body:Node3D):
 	closest = get_closest()
-	body.hit(get_parent().damage,get_parent().apValue)
-	if (body.health<=0):
-		body.queue_free()
-		attacking = false
-		return
-	await get_tree().create_timer(get_parent().attackRate).timeout
+	#idk if I need to do this but uh better safe then sorry
+	if(is_instance_valid(body)):
+		body.hit(get_parent().damage,get_parent().apValue)
+		if (body.health<=0):
+			body.queue_free()
+			attacking = false
+			return
+		await get_tree().create_timer(get_parent().attackRate).timeout
 	if(body!=null):
 		attack(closest)
 	else:

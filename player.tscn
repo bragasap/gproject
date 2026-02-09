@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="Script" uid="uid://br1seygui4q2b" path="res://basescripts/player.gd" id="1_i3pqv"]
+[ext_resource type="Script" uid="uid://ckp4b53u6oy0k" path="res://basescripts/control.gd" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://cb4eam8v584o8" path="res://basescripts/camera_3d.gd" id="3_sweqy"]
+
+[node name="player" type="Node3D" unique_id=1666066983]
+script = ExtResource("1_i3pqv")
+
+[node name="Control" type="Control" parent="." unique_id=827479672]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_hqtel")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1091011035]
+transform = Transform3D(0.78074676, 0.37162098, -0.5023269, 0, 0.80391914, 0.5947386, 0.6248476, -0.46434024, 0.6276573, -0.00044083595, -0.0002706051, 7.367134e-05)
+script = ExtResource("3_sweqy")

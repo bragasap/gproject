@@ -15,7 +15,7 @@ extends Node3D
 @onready var cam: Camera3D = $"../player/Camera3D"
 func _ready() -> void:
 	add_to_group("team_%d" % faction)
-	print(get_groups())
+	#print(get_groups())
 	friendly.append(faction)
 	health = maxHealth
 	deSelect()

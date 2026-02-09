@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mgp02mkor0at"]
+[gd_scene format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Texture2D" uid="uid://bu7qae08t14ds" path="res://sprites/character-spritesheet.png" id="1_a202f"]
 [ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://basescripts/unit.gd" id="1_ctwoc"]
@@ -144,23 +144,23 @@ size = Vector3(0.2975769, 0.47547913, 0.29101563)
 height = 0.5
 radius = 1.0
 
-[node name="unit" type="CharacterBody3D"]
+[node name="unit" type="CharacterBody3D" unique_id=562985554]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_ctwoc")
 maxHealth = 50.0
 damage = 10.0
 
-[node name="combat" type="Node" parent="."]
+[node name="combat" type="Node" parent="." unique_id=596114183]
 script = ExtResource("2_baxm0")
 
-[node name="animator" type="Node" parent="."]
+[node name="animator" type="Node" parent="." unique_id=1895559353]
 script = ExtResource("2_1sk4h")
 
-[node name="movement" type="Node" parent="."]
+[node name="movement" type="Node" parent="." unique_id=34622256]
 script = ExtResource("2_5wnup")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2032457401]
 billboard = 2
 texture_filter = 0
 texture = ExtResource("1_a202f")
@@ -170,27 +170,25 @@ frame = 144
 region_enabled = true
 region_rect = Rect2(0, 8, 832, 3456)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_r3fl7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D" unique_id=1045410233]
+libraries/ = SubResource("AnimationLibrary_r3fl7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=211941461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043792725, 0.025367737, -0.018554688)
 shape = SubResource("BoxShape3D_a202f")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1082848018]
 path_desired_distance = 0.1
 target_desired_distance = 0.1
 avoidance_enabled = true
 radius = 0.2
 
-[node name="AttackRange" type="Area3D" parent="."]
+[node name="AttackRange" type="Area3D" parent="." unique_id=988537805]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange" unique_id=1169136827]
 shape = SubResource("CylinderShape3D_1sk4h")
 
-[node name="selector" type="Sprite3D" parent="."]
+[node name="selector" type="Sprite3D" parent="." unique_id=372400759]
 transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, 0.25, 0, -0.25, -1.0927847e-08, 0, -0.2, 0)
 texture = ExtResource("6_baxm0")
 
