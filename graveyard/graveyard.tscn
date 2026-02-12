@@ -1,27 +1,31 @@
 [gd_scene format=3 uid="uid://1gph6gv7x318"]
 
 [ext_resource type="Script" uid="uid://beagiach76l0f" path="res://graveyard/graveyard.gd" id="1_q8f0u"]
-[ext_resource type="PackedScene" uid="uid://by4v7bqg7tox4" path="res://zombie.tscn" id="2_17enf"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_q302q"]
+[ext_resource type="PackedScene" path="res://zombie.tscn" id="2_17enf"]
+[ext_resource type="PackedScene" uid="uid://cm07vawpo3ytf" path="res://meshes/grave01/grave.gltf" id="3_3edmn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8f0u"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3edmn"]
+height = 5.0
+radius = 5.0
+
 [node name="Graveyard" type="Node3D" unique_id=167670507]
 script = ExtResource("1_q8f0u")
-unitList = [ExtResource("2_17enf")]
+unitList = Array[PackedScene]([ExtResource("2_17enf")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1802825280]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1595918258]
-mesh = SubResource("BoxMesh_q302q")
-skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2046536820]
 shape = SubResource("BoxShape3D_q8f0u")
 
-[node name="spawn" type="Node3D" parent="." unique_id=1042081846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.81050336)
+[node name="blockbench_export" parent="StaticBody3D" unique_id=16842741 instance=ExtResource("3_3edmn")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.16668297)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2031930203]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1418674)
+[node name="spawn" type="Node3D" parent="." unique_id=1042081846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.691)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=452832292]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1407161719]
+shape = SubResource("CylinderShape3D_3edmn")

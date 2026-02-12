@@ -3,7 +3,7 @@ extends Control
 @onready var select_box: Rect2
 @onready var selecting: bool = false
 @export var faction: int = 1
-@onready var viewCamera: Camera3D = $"../player/Camera3D"
+@onready var viewCamera: Camera3D = $"../Camera3D"
 const RAY_LENGTH = 1000.0
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:

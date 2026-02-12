@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://mgp02mkor0at" path="res://unit.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="2_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://1gph6gv7x318" path="res://graveyard/graveyard.tscn" id="3_6uqi0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_37kl0"]
-vertices = PackedVector3Array(-4.5, 0.26236486, -4.5, -4.5, 0.26236486, 4.5, 4.5, 0.26236486, 4.5, 4.5, 0.26236486, -4.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-4.5, 0.26236486, 3.25, -3.75, 0.26236486, 3.25, -3.5, 0.26236486, 2, -4.5, 0.26236486, -4.5, -1.75, 0.26236486, 2, -1.75, 0.26236486, 4.25, -1.5, 0.26236486, 4.5, 4.5, 0.26236486, 4.5, 4.5, 0.26236486, -4.5, -3.5, 0.26236486, 4.25, -4.5, 0.26236486, 4.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(4, 2, 3), PackedInt32Array(7, 4, 8), PackedInt32Array(8, 4, 3), PackedInt32Array(1, 9, 0), PackedInt32Array(0, 9, 10), PackedInt32Array(5, 6, 9), PackedInt32Array(9, 6, 10)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
 size = Vector3(10, 1, 10)
@@ -54,15 +55,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
 [node name="player" parent="." unique_id=1666066983 instance=ExtResource("2_8uh7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8771783, 1.9747307, 2.805)
 
-[node name="unit10" parent="." unique_id=1794867208 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6364648, 0.03575495, -0.813462)
-faction = 2
-
-[node name="unit11" parent="." unique_id=1650141737 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4403238, -0.046022236, 0.2679503)
-faction = 2
-
-[node name="unit12" parent="." unique_id=1958120701 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.924143, 0.035755068, -1.1416388)
-maxHealth = 30.0
-faction = 2
+[node name="Graveyard" parent="." unique_id=167670507 instance=ExtResource("3_6uqi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6964307, -0.16990209, 3.0792522)

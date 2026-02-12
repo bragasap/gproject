@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://by4v7bqg7tox4"]
+[gd_scene format=3 uid="uid://dfnfbej3bpd7l"]
 
 [ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://basescripts/unit.gd" id="1_lnshm"]
 [ext_resource type="Script" uid="uid://cw6hkt71fhhc8" path="res://basescripts/combat.gd" id="2_x5rsa"]
