@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1gph6gv7x318"]
 
 [ext_resource type="Script" uid="uid://beagiach76l0f" path="res://graveyard/graveyard.gd" id="1_q8f0u"]
-[ext_resource type="PackedScene" path="res://zombie.tscn" id="2_17enf"]
+[ext_resource type="PackedScene" uid="uid://dfnfbej3bpd7l" path="res://zombie.tscn" id="2_17enf"]
 [ext_resource type="PackedScene" uid="uid://cm07vawpo3ytf" path="res://meshes/grave01/grave.gltf" id="3_3edmn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8f0u"]

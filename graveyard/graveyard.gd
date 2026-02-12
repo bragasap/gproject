@@ -2,7 +2,7 @@ extends Node3D
 @onready var spawnPoint = $spawn
 @export var unitList:Array[PackedScene]
 ##everything here is temporary logic
-@export var faction = 1
+@export var faction = -1
 @export var maxUnits = 5
 @export var unitSpawnInterval:float = 5
 @onready var patrol = $Area3D/patrolArea

@@ -14,9 +14,11 @@ func _input(event: InputEvent) -> void:
 		var space_state := viewCamera.get_world_3d().direct_space_state
 		var query := PhysicsRayQueryParameters3D.create(from, to)
 		var result := space_state.intersect_ray(query)
-				#elif(unitSelect!=null):
-		print(result["position"])
+		if result.is_empty():
+			return  # Ray hit nothing
+
 		for unit in get_tree().get_nodes_in_group("selected-units"):
+			
 			unit.newWaypoint(result["position"])
 	#so this works but currently cannot just click on a single unit
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
