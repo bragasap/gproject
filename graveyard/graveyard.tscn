@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://1gph6gv7x318"]
+
+[ext_resource type="Script" uid="uid://beagiach76l0f" path="res://graveyard/graveyard.gd" id="1_q8f0u"]
+[ext_resource type="PackedScene" uid="uid://by4v7bqg7tox4" path="res://zombie.tscn" id="2_17enf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q302q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q8f0u"]
+
+[node name="Graveyard" type="Node3D" unique_id=167670507]
+script = ExtResource("1_q8f0u")
+unitList = [ExtResource("2_17enf")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1802825280]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1595918258]
+mesh = SubResource("BoxMesh_q302q")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2046536820]
+shape = SubResource("BoxShape3D_q8f0u")
+
+[node name="spawn" type="Node3D" parent="." unique_id=1042081846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.81050336)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2031930203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1418674)
