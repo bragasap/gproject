@@ -16,7 +16,7 @@ func spawn():
 	var instance = unitList[0].instantiate()
 	instance.faction = faction
 	add_sibling.call_deferred(instance)
-	instance.global_position = spawnPoint.global_position
+	instance.position = spawnPoint.global_position
 	currUnits.append(instance)
 	updateTarget.call_deferred(instance)
 func updateTarget(unit):

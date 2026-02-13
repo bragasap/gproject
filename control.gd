@@ -16,7 +16,6 @@ func _input(event: InputEvent) -> void:
 		var result := space_state.intersect_ray(query)
 		if result.is_empty():
 			return  # Ray hit nothing
-
 		for unit in get_tree().get_nodes_in_group("selected-units"):
 			
 			unit.newWaypoint(result["position"])

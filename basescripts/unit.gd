@@ -12,6 +12,8 @@ extends Node3D
 @export var attackRate:float = 1.0
 ##will be used as an array of ints for friendly, if not in the list assumed hostile
 @export var friendly:Array
+##this is causing issue fix later, its assume what cam to use due to becoming a packed scene
+
 @onready var cam: Camera3D = $"../player/Camera3D"
 func _ready() -> void:
 	add_to_group("team_%d" % faction)

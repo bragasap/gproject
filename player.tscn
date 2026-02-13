@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Script" uid="uid://br1seygui4q2b" path="res://basescripts/player.gd" id="1_i3pqv"]
-[ext_resource type="Script" uid="uid://ckp4b53u6oy0k" path="res://basescripts/control.gd" id="2_hqtel"]
-[ext_resource type="Script" uid="uid://cb4eam8v584o8" path="res://basescripts/camera_3d.gd" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://ckp4b53u6oy0k" path="res://control.gd" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://cb4eam8v584o8" path="res://camera_3d.gd" id="3_sweqy"]
 
 [node name="player" type="Node3D" unique_id=1666066983]
 script = ExtResource("1_i3pqv")

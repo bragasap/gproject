@@ -27,6 +27,7 @@ func attack(body:Node3D):
 			attacking = false
 			return
 		await get_tree().create_timer(get_parent().attackRate).timeout
+	##broken currently
 	if(body!=null):
 		attack(closest)
 	else:
