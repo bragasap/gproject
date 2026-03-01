@@ -32,10 +32,8 @@ func deSelect():
 	remove_from_group("selected-units")
 #func _physics_process(_delta: float) -> void:
 	#print(global_transform)
-
 func hit(x:float,_y:int):
 	health = health - x
-	print(name+"hit for ",x,"health at ",health)
 func setMaxHealth(x:float):
 	maxHealth = x
 func setArmor(x:int):
@@ -50,6 +48,8 @@ func healthRegen():
 	health = clamp(health + healthRegenValue,0,maxHealth)
 	await get_tree().create_timer(1.0).timeout
 	healthRegen()
+func kill():
+	queue_free()
 func newWaypoint(x:Vector3):
 	movementController.set_movement_target(x)
 

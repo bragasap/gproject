@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://drvtca7nmacyi"]
+
+[ext_resource type="PackedScene" uid="uid://cm8sqs16q25c7" path="res://meshes/trees/basic/Tree.gltf" id="1_c6loj"]
+
+[node name="Tree01" type="Node3D" unique_id=1974090935]
+
+[node name="blockbench_export" parent="." unique_id=417204710 instance=ExtResource("1_c6loj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0329926, 0, 0.005452633)

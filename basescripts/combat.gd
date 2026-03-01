@@ -23,7 +23,7 @@ func attack(body:Node3D):
 	if(is_instance_valid(body)):
 		body.hit(get_parent().damage,get_parent().apValue)
 		if (body.health<=0):
-			body.queue_free()
+			body.kill()
 			attacking = false
 			return
 		await get_tree().create_timer(get_parent().attackRate).timeout
@@ -48,17 +48,21 @@ func _physics_process(_delta):
 	if(attackInRange.size()>0&&!attacking):
 		attacking = true
 		attack(get_closest())
+##just a heads up because Im stupid, must be a BODY, will not work for generic Node3D
 func _on_attack_range_body_entered(body: Node3D) -> void:
 	if body == get_parent():
 		return
-	if body is StaticBody3D:
+	print(body)
+	if body.get("faction")==null:
 		return
 	#so this has the unintended consiquence if a faction changes mid fight they keep fighting
 	#I think I like this but idk
+	print(body)
 	if unitController.friendly.has(body.faction):
 		return 
 	#gotta rewrite this one later for friendly faction check
 	attackInRange[body] = ""
+	print(body)
 	#print(attackInRange[body].faction)
 	#if(attackInRange[body].faction!=stats.faction):
 	#async loop must fix

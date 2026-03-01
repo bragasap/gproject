@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cepo51wy5ut1l"]
+
+[ext_resource type="Script" uid="uid://yoy1nm42yli6" path="res://buildings/order/building.gd" id="1_06xfp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_06xfp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1778"]
+
+[node name="Building" type="StaticBody3D" unique_id=1151138505]
+script = ExtResource("1_06xfp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=698129618]
+mesh = SubResource("BoxMesh_06xfp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=373464664]
+shape = SubResource("BoxShape3D_p1778")
