@@ -38,6 +38,9 @@ func _process(delta):
 	if attacking:
 		attack_time += delta
 		var t2 = attack_time / attack_duration
-		sprite.rotation_degrees.z = lerp(-30, 0, t2)
+		if sprite.flip_h:
+			sprite.rotation_degrees.z = lerp(30, 0, t2)
+		else:
+			sprite.rotation_degrees.z = lerp(-30, 0, t2)
 		if attack_time >= attack_duration:
 			attacking = false

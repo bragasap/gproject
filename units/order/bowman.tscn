@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://units/scripts/unit.gd" id="1_kl57x"]
 [ext_resource type="Script" uid="uid://dlc3tb75wno7i" path="res://units/scripts/basicanimator.gd" id="2_u5m7j"]
+[ext_resource type="Script" uid="uid://gt5rxryk0wkh" path="res://units/scripts/ranged.gd" id="4_8sup1"]
 [ext_resource type="Script" uid="uid://jrjlry6qobii" path="res://units/scripts/movement.gd" id="4_skma5"]
 [ext_resource type="Texture2D" uid="uid://ck3t5bweaw4ax" path="res://sprites/selector.png" id="5_f351h"]
+[ext_resource type="PackedScene" uid="uid://pu3rlvqqq86d" path="res://misc/projectile/arrow/arrow.tscn" id="5_mlrlr"]
 [ext_resource type="Texture2D" uid="uid://dgl0kn85v215s" path="res://sprites/bowman.png" id="6_8sup1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
@@ -25,6 +27,10 @@ script = ExtResource("2_u5m7j")
 
 [node name="movement" type="Node" parent="." unique_id=34622256]
 script = ExtResource("4_skma5")
+
+[node name="combat" type="Node" parent="." unique_id=2057938350]
+script = ExtResource("4_8sup1")
+rangedAttack = ExtResource("5_mlrlr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=211941461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043792725, 0.025367737, -0.018554688)
@@ -50,3 +56,5 @@ texture = ExtResource("5_f351h")
 transform = Transform3D(3.048871, 0, -0.44935015, 0, 3.7958276, 0, 1.5335557, 0, 0.89335567, 0, 0, 0)
 texture_filter = 0
 texture = ExtResource("6_8sup1")
+
+[node name="projspawn" type="Marker3D" parent="." unique_id=1132263583]

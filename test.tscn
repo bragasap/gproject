@@ -61,8 +61,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25622916, 0.06603107, -1.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5124583, 0.13206214, -2.5896673)
 
 [node name="bowman" parent="." unique_id=1530411744 instance=ExtResource("5_ykrsh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9645498, 0.06603119, -0.969452)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5942402, 0.06603119, 3.2405663)
 faction = 2
 
 [node name="Arrow" parent="." unique_id=1031435809 instance=ExtResource("6_g14j6")]
 transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -2.433898, 0.7584268, -2.5840192)
+
+[node name="bowman2" parent="." unique_id=671725551 instance=ExtResource("5_ykrsh")]
+transform = Transform3D(-0.98948294, 0, 0.14464968, 0, 1, 0, -0.14464968, 0, -0.98948294, 1.02631, 0.06603119, 3.2405663)
+faction = 2

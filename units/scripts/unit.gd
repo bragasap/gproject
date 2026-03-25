@@ -16,6 +16,7 @@ extends Node3D
 @onready var animator = get_node("animator")
 @onready var cam: Camera3D = $"../player/Camera3D"
 func _ready() -> void:
+	animator.attack_time = attackRate
 	add_to_group("team_%d" % faction)
 	#print(get_groups())
 	friendly.append(faction)
