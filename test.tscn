@@ -69,4 +69,3 @@ transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.3
 
 [node name="bowman2" parent="." unique_id=671725551 instance=ExtResource("5_ykrsh")]
 transform = Transform3D(-0.98948294, 0, 0.14464968, 0, 1, 0, -0.14464968, 0, -0.98948294, 1.02631, 0.06603119, 3.2405663)
-faction = 2

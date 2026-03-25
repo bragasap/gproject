@@ -13,7 +13,7 @@ size = Vector3(0.2975769, 0.47547913, 0.29101563)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1sk4h"]
 height = 0.5
-radius = 1.0
+radius = 4.292
 
 [node name="bowman" type="CharacterBody3D" unique_id=562985554]
 collision_layer = 3
@@ -58,3 +58,7 @@ texture_filter = 0
 texture = ExtResource("6_8sup1")
 
 [node name="projspawn" type="Marker3D" parent="." unique_id=1132263583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.20896643)
+
+[connection signal="body_entered" from="AttackRange" to="combat" method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="combat" method="_on_attack_range_body_exited"]
