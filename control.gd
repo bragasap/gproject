@@ -17,7 +17,6 @@ func _input(event: InputEvent) -> void:
 		if result.is_empty():
 			return  # Ray hit nothing
 		for unit in get_tree().get_nodes_in_group("selected-units"):
-			
 			unit.newWaypoint(result["position"])
 	#so this works but currently cannot just click on a single unit
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

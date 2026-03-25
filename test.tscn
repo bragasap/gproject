@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cepo51wy5ut1l" path="res://buildings/order/building.tscn" id="3_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://dmihlktrffnsu" path="res://units/order/pikeman.tscn" id="4_ppyta"]
 [ext_resource type="PackedScene" uid="uid://cv6nd3mxh65l5" path="res://units/order/swordman.tscn" id="4_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://bspvebgs16x4r" path="res://units/order/bowman.tscn" id="5_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://pu3rlvqqq86d" path="res://misc/projectile/arrow/arrow.tscn" id="6_g14j6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_37kl0"]
 vertices = PackedVector3Array(-4.5, 0.26236486, -4.5, -4.5, 0.26236486, 4.5, 4.5, 0.26236486, 4.5, 4.5, 0.26236486, -4.5)
@@ -40,7 +42,7 @@ faction = 2
 navMesh = NodePath("..")
 
 [node name="player" parent="." unique_id=1666066983 instance=ExtResource("2_8uh7m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8771783, 1.9747307, 2.805)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8771783, 1.5293291, 2.805)
 
 [node name="pikeman" parent="." unique_id=562985554 instance=ExtResource("4_ppyta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9328413, 0.06603107, -2.1106439)
@@ -57,3 +59,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25622916, 0.06603107, -1.2
 
 [node name="swordsman2" parent="." unique_id=665346546 instance=ExtResource("4_ykrsh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5124583, 0.13206214, -2.5896673)
+
+[node name="bowman" parent="." unique_id=1530411744 instance=ExtResource("5_ykrsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9645498, 0.06603119, -0.969452)
+faction = 2
+
+[node name="Arrow" parent="." unique_id=1031435809 instance=ExtResource("6_g14j6")]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -2.433898, 0.7584268, -2.5840192)

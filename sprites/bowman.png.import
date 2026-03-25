@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnhckpu12g6h4"
-path.s3tc="res://.godot/imported/test_map_small.jpg-caac71a15f98262ace4e2bd58d60dd9d.s3tc.ctex"
+uid="uid://dgl0kn85v215s"
+path="res://.godot/imported/bowman.png-e298ed7ee83ee11cf735fef04379d9e8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "2bf8231f821077c8f33a3b8592591e42"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://temp/test_map_small.jpg"
-dest_files=["res://.godot/imported/test_map_small.jpg-caac71a15f98262ace4e2bd58d60dd9d.s3tc.ctex"]
+source_file="res://sprites/bowman.png"
+dest_files=["res://.godot/imported/bowman.png-e298ed7ee83ee11cf735fef04379d9e8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
