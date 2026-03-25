@@ -13,7 +13,7 @@ extends Node3D
 ##will be used as an array of ints for friendly, if not in the list assumed hostile
 @export var friendly:Array
 ##this is causing issue fix later, its assume what cam to use due to becoming a packed scene
-
+@onready var animator = get_node("animator")
 @onready var cam: Camera3D = $"../player/Camera3D"
 func _ready() -> void:
 	add_to_group("team_%d" % faction)
@@ -34,6 +34,7 @@ func deSelect():
 	#print(global_transform)
 func hit(x:float,_y:int):
 	health = health - x
+	animator.start_flash()
 func setMaxHealth(x:float):
 	maxHealth = x
 func setArmor(x:int):

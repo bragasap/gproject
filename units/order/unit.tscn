@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://mgp02mkor0at"]
 
 [ext_resource type="Texture2D" uid="uid://bu7qae08t14ds" path="res://sprites/character-spritesheet.png" id="1_a202f"]
-[ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://basescripts/unit.gd" id="1_ctwoc"]
-[ext_resource type="Script" uid="uid://bntclawtsl6er" path="res://basescripts/animator.gd" id="2_1sk4h"]
-[ext_resource type="Script" uid="uid://jrjlry6qobii" path="res://basescripts/movement.gd" id="2_5wnup"]
-[ext_resource type="Script" uid="uid://cw6hkt71fhhc8" path="res://basescripts/combat.gd" id="2_baxm0"]
+[ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://units/scripts/unit.gd" id="1_ctwoc"]
+[ext_resource type="Script" uid="uid://bntclawtsl6er" path="res://units/scripts/animator.gd" id="2_1sk4h"]
+[ext_resource type="Script" uid="uid://jrjlry6qobii" path="res://units/scripts/movement.gd" id="2_5wnup"]
+[ext_resource type="Script" uid="uid://cw6hkt71fhhc8" path="res://units/scripts/combat.gd" id="2_baxm0"]
 [ext_resource type="Texture2D" uid="uid://ck3t5bweaw4ax" path="res://sprites/selector.png" id="6_baxm0"]
 
 [sub_resource type="Animation" id="Animation_a0tk4"]

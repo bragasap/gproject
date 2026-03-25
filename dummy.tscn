@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bosc1km7wv8v"]
 
-[ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://basescripts/unit.gd" id="1_gtj52"]
+[ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://units/scripts/unit.gd" id="1_gtj52"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xmspm"]
 

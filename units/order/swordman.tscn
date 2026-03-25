@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cv6nd3mxh65l5"]
+
+[ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://units/scripts/unit.gd" id="1_6eshb"]
+[ext_resource type="Script" uid="uid://dlc3tb75wno7i" path="res://units/scripts/basicanimator.gd" id="2_2371a"]
+[ext_resource type="Script" uid="uid://cw6hkt71fhhc8" path="res://units/scripts/combat.gd" id="3_37qqf"]
+[ext_resource type="Script" uid="uid://jrjlry6qobii" path="res://units/scripts/movement.gd" id="4_85y7w"]
+[ext_resource type="Texture2D" uid="uid://ck3t5bweaw4ax" path="res://sprites/selector.png" id="5_cr5oi"]
+[ext_resource type="Texture2D" uid="uid://db0g3vcgxdq62" path="res://sprites/swordsman.png" id="6_6eshb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
+size = Vector3(0.2975769, 0.47547913, 0.29101563)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1sk4h"]
+height = 0.5
+radius = 1.0
+
+[node name="swordsman" type="CharacterBody3D" unique_id=562985554]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_6eshb")
+maxHealth = 50.0
+damage = 10.0
+
+[node name="animator" type="Node" parent="." unique_id=701874025]
+script = ExtResource("2_2371a")
+
+[node name="combat" type="Node" parent="." unique_id=596114183]
+script = ExtResource("3_37qqf")
+
+[node name="movement" type="Node" parent="." unique_id=34622256]
+script = ExtResource("4_85y7w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=211941461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043792725, 0.025367737, -0.018554688)
+shape = SubResource("BoxShape3D_a202f")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1082848018]
+path_desired_distance = 0.1
+target_desired_distance = 0.1
+avoidance_enabled = true
+radius = 0.2
+
+[node name="AttackRange" type="Area3D" parent="." unique_id=988537805]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange" unique_id=1169136827]
+shape = SubResource("CylinderShape3D_1sk4h")
+
+[node name="selector" type="Sprite3D" parent="." unique_id=372400759]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, 0.25, 0, -0.25, -1.0927847e-08, 0, -0.2, 0)
+visible = false
+texture = ExtResource("5_cr5oi")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=488540348]
+transform = Transform3D(3.048871, 0, -0.44935015, 0, 3.7958276, 0, 1.5335557, 0, 0.89335567, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("6_6eshb")
+
+[connection signal="body_entered" from="AttackRange" to="combat" method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="combat" method="_on_attack_range_body_exited"]

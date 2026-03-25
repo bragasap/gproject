@@ -21,6 +21,7 @@ func attack(body:Node3D):
 	closest = get_closest()
 	#idk if I need to do this but uh better safe then sorry
 	if(is_instance_valid(body)):
+		animationController.start_attack()
 		body.hit(get_parent().damage,get_parent().apValue)
 		if (body.health<=0):
 			body.kill()

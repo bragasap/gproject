@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b6vf1aji6dy38"]
 
-[ext_resource type="PackedScene" uid="uid://mgp02mkor0at" path="res://units/order/unit.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="2_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://cepo51wy5ut1l" path="res://buildings/order/building.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://dmihlktrffnsu" path="res://units/order/pikeman.tscn" id="4_ppyta"]
+[ext_resource type="PackedScene" uid="uid://cv6nd3mxh65l5" path="res://units/order/swordman.tscn" id="4_ykrsh"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_37kl0"]
 vertices = PackedVector3Array(-4.5, 0.26236486, -4.5, -4.5, 0.26236486, 4.5, 4.5, 0.26236486, 4.5, 4.5, 0.26236486, -4.5)
@@ -17,26 +18,6 @@ size = Vector3(10, 1, 10)
 albedo_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
 
 [node name="Test" type="Node3D" unique_id=1897950056]
-
-[node name="unit7" parent="." unique_id=562985554 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7189229, 0.03575495, -1.1778064)
-
-[node name="unit8" parent="." unique_id=1721048492 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91506386, -0.046022236, -0.09639406)
-
-[node name="unit9" parent="." unique_id=449320740 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4312446, 0.035755068, -1.5059831)
-maxHealth = 30.0
-
-[node name="unit5" parent="." unique_id=46743672 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6909564, 0.058766067, -1.5971729)
-
-[node name="unit4" parent="." unique_id=1208632795 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8870975, -0.023011118, -0.51576054)
-
-[node name="unit6" parent="." unique_id=400875902 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4032784, 0.058766186, -1.9253497)
-maxHealth = 30.0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1883380005]
 navigation_mesh = SubResource("NavigationMesh_37kl0")
@@ -61,7 +42,18 @@ navMesh = NodePath("..")
 [node name="player" parent="." unique_id=1666066983 instance=ExtResource("2_8uh7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8771783, 1.9747307, 2.805)
 
-[node name="unit10" parent="." unique_id=418823259 instance=ExtResource("1_37kl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7033978, 0.058766186, -1.8332896)
-maxHealth = 30.0
+[node name="pikeman" parent="." unique_id=562985554 instance=ExtResource("4_ppyta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9328413, 0.06603107, -2.1106439)
+
+[node name="pikeman2" parent="." unique_id=1779343230 instance=ExtResource("4_ppyta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81924105, 0.13206214, -2.707864)
+
+[node name="pikeman3" parent="." unique_id=1802557752 instance=ExtResource("4_ppyta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.653821, 0.13206214, -2.0933192)
 faction = 2
+
+[node name="swordsman" parent="." unique_id=1054052889 instance=ExtResource("4_ykrsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25622916, 0.06603107, -1.2948337)
+
+[node name="swordsman2" parent="." unique_id=665346546 instance=ExtResource("4_ykrsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5124583, 0.13206214, -2.5896673)

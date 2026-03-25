@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dfnfbej3bpd7l"]
 
-[ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://basescripts/unit.gd" id="1_lnshm"]
-[ext_resource type="Script" uid="uid://cw6hkt71fhhc8" path="res://basescripts/combat.gd" id="2_x5rsa"]
-[ext_resource type="Script" uid="uid://bntclawtsl6er" path="res://basescripts/animator.gd" id="3_ogcpr"]
-[ext_resource type="Script" uid="uid://jrjlry6qobii" path="res://basescripts/movement.gd" id="4_i82o5"]
+[ext_resource type="Script" uid="uid://c8mmy58mx3l3n" path="res://units/scripts/unit.gd" id="1_lnshm"]
+[ext_resource type="Script" uid="uid://cw6hkt71fhhc8" path="res://units/scripts/combat.gd" id="2_x5rsa"]
+[ext_resource type="Script" uid="uid://bntclawtsl6er" path="res://units/scripts/animator.gd" id="3_ogcpr"]
+[ext_resource type="Script" uid="uid://jrjlry6qobii" path="res://units/scripts/movement.gd" id="4_i82o5"]
 [ext_resource type="Texture2D" uid="uid://b54xapoovkw2x" path="res://sprites/Zombie.png" id="5_lnshm"]
 [ext_resource type="Texture2D" uid="uid://ck3t5bweaw4ax" path="res://sprites/selector.png" id="6_x4h2d"]
 
