@@ -8,6 +8,7 @@ extends Node3D
 @export var apValue:int
 @export var faction:int = 1
 @export var waypoints:Array
+@export var type := "melee"
 ##attacks per second
 @export var attackRate:float = 1.0
 ##will be used as an array of ints for friendly, if not in the list assumed hostile

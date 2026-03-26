@@ -21,6 +21,7 @@ collision_mask = 3
 script = ExtResource("1_kl57x")
 maxHealth = 50.0
 damage = 10.0
+type = "ranged"
 
 [node name="animator" type="Node" parent="." unique_id=701874025]
 script = ExtResource("2_u5m7j")

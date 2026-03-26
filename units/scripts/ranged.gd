@@ -19,12 +19,12 @@ func shoot():
 
 	var instance = rangedAttack.instantiate()
 	get_tree().current_scene.add_child(instance)
+	instance.linear_velocity=-projSpawn.global_transform.basis.z * speed
 	instance.damage = damage
 	instance.apValue = apValue
 	instance.global_position = projSpawn.global_position
 	instance.add_collision_exception_with(get_parent())
-	
-	instance.linear_velocity=-projSpawn.global_transform.basis.z * speed
+
 	await get_tree().create_timer(2.0).timeout
 	#shoot()
 func get_closest()->Node3D:
@@ -45,11 +45,12 @@ func attack(body:Node3D):
 	if(is_instance_valid(body)):
 		
 		animationController.start_attack()
-		shoot()
+
 		await get_tree().create_timer(get_parent().attackRate).timeout
 	##broken currently
 	if(closest!=null):
 		projSpawn.look_at(closest.global_transform.origin, Vector3.UP)
+		shoot()
 		attack(closest)
 	else:
 		attacking = false

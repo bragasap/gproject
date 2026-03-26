@@ -53,17 +53,17 @@ func _physics_process(_delta):
 func _on_attack_range_body_entered(body: Node3D) -> void:
 	if body == get_parent():
 		return
-	print(body)
+	#print(body)
 	if body.get("faction")==null:
 		return
 	#so this has the unintended consiquence if a faction changes mid fight they keep fighting
 	#I think I like this but idk
-	print(body)
+	#print(body)
 	if unitController.friendly.has(body.faction):
 		return 
 	#gotta rewrite this one later for friendly faction check
 	attackInRange[body] = ""
-	print(body)
+	#print(body)
 	#print(attackInRange[body].faction)
 	#if(attackInRange[body].faction!=stats.faction):
 	#async loop must fix

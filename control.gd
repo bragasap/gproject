@@ -4,6 +4,9 @@ extends Control
 @onready var selecting: bool = false
 @export var faction: int = 1
 @onready var viewCamera: Camera3D = $"../Camera3D"
+var pos
+var spacing
+var released = true
 const RAY_LENGTH = 1000.0
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
@@ -16,16 +19,25 @@ func _input(event: InputEvent) -> void:
 		var result := space_state.intersect_ray(query)
 		if result.is_empty():
 			return  # Ray hit nothing
-		for unit in get_tree().get_nodes_in_group("selected-units"):
-			unit.newWaypoint(result["position"])
+		if pos != null:
+			spacing = pos - result["position"]
+			print(pos)
+			print(spacing)
+		if pos == null:
+			pos = result["position"]
+		if pos!=null && spacing !=null:
+			for unit in get_tree().get_nodes_in_group("selected-units"):
+				unit.newWaypoint(pos)
+				pos -= spacing
+			pos = null
+			spacing = null
 	#so this works but currently cannot just click on a single unit
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if(event.is_pressed()):
 			selecting=true
-			print("woo")
 			drag_start = event.position
 		else:
-			print("aww")
+
 			selecting = false
 			queue_redraw()
 	elif selecting and event is InputEventMouseMotion:
